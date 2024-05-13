@@ -1,1 +1,2 @@
-print(f'This is course work')
+for i in range(5):
+    print(f'lol')
