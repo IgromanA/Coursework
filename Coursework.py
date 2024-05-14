@@ -288,13 +288,13 @@ def delete_example():
 def insert_and_search_example():
     B = BTree(3)
 
-    for i in range(10):
+    for i in range(83):
         B.insert(i)
 
     B.print_tree(B.root)
     print()
 
-    keys_to_search_for = [2, 9, 11, 4]
+    keys_to_search_for = [10, 25, 121, 71]
     for key in keys_to_search_for:
         if B.search(key) is not None:
             print(f'{key} is in the tree')
