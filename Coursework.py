@@ -309,4 +309,5 @@ def main():
     delete_example()
 
 
-main()
+if __name__ == "__main__":
+    main()
