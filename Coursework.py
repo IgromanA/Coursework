@@ -1,3 +1,5 @@
+from time import *
+
 class Node:
     def __init__(self, leaf=False):
         self.keys = []
@@ -11,13 +13,17 @@ class BTree:
         self.t = t
 
     def search(self, key, node=None):
+        start_time = time()
+
         node = self.root if node == None else node
     
         i = 0
         while i < len(node.keys) and key > node.keys[i]:
             i += 1
         if i < len(node.keys) and key == node.keys[i]:
-            return (node, i)
+            end_time = time()
+            elapsed_time = end_time - start_time
+            return elapsed_time
         elif node.leaf:
             return None
         else:
@@ -288,25 +294,25 @@ def delete_example():
 def insert_and_search_example():
     B = BTree(3)
 
-    for i in range(83):
+    for i in range(1000000):
         B.insert(i)
 
     B.print_tree(B.root)
     print()
 
-    keys_to_search_for = [10, 25, 121, 71]
+    keys_to_search_for = [994937]
     for key in keys_to_search_for:
         if B.search(key) is not None:
-            print(f'{key} is in the tree')
+            print(f'{key} is in the tree\nTime spent: {B.search(key)}')
         else:
-            print(f'{key} is NOT in the tree')
+            print(f'{key} is NOT in the tree\nTime spent: {B.search(key)}')
 
 
 def main():
     print('\n--- INSERT & SEARCH ---\n')
     insert_and_search_example()
 
-    delete_example()
+    # delete_example()
 
 
 if __name__ == "__main__":
