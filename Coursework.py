@@ -299,6 +299,8 @@ def insert_and_search_example():
     B.print_tree(B.root)
     print()
 
+    print("\033[H\033[J", end="")
+
     keys_to_search_for = [9842]
     for key in keys_to_search_for:
         if B.search(key) is not None:
@@ -311,7 +313,7 @@ def main():
     print('\n--- INSERT & SEARCH ---\n')
     insert_and_search_example()
 
-    delete_example()
+    # delete_example()
 
 
 if __name__ == "__main__":

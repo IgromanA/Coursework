@@ -26,6 +26,8 @@ def main():
     print('\n--- INSERT & SEARCH ---\n')
     print(Tree)
 
+    print("\033[H\033[J", end="")
+
     keys_to_search_for = [9842]
     for key in keys_to_search_for:
         if search(Tree, key) is not None:
