@@ -304,7 +304,7 @@ def search_example():
 
     for i in range(100):
         B.insert(i)
-        
+
     keys_to_search_for = [97]
     for key in keys_to_search_for:
         if B.search(key) is not None:
@@ -314,6 +314,7 @@ def search_example():
 
 
 def main():
+    print("\033[H\033[J", end="")
     Flag = True
 
     choise = int(input("Which action will you choose?\n ▷ 1 ― Make a tree\n ▷ 2 ― Find an element\n ▷ 3 ― Deleting elements\n"))
