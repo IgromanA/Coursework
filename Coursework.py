@@ -290,18 +290,22 @@ def delete_example():
     B.print_tree(B.root)
 
 
-def insert_and_search_example():
+def insert_example():
     B = BTree(3)
 
-    for i in range(10000):
+    for i in range(100):
         B.insert(i)
 
     B.print_tree(B.root)
     print()
 
-    print("\033[H\033[J", end="")
+def search_example():
+    B = BTree(3)
 
-    keys_to_search_for = [9842]
+    for i in range(100):
+        B.insert(i)
+        
+    keys_to_search_for = [97]
     for key in keys_to_search_for:
         if B.search(key) is not None:
             print(f'{key} is in the tree\nTime spent: {B.search(key):.9f}')
@@ -310,10 +314,32 @@ def insert_and_search_example():
 
 
 def main():
-    print('\n--- INSERT & SEARCH ---\n')
-    insert_and_search_example()
+    Flag = True
 
-    # delete_example()
+    choise = int(input("Which action will you choose?\n ▷ 1 ― Make a tree\n ▷ 2 ― Find an element\n ▷ 3 ― Deleting elements\n"))
+
+    while Flag:
+        if choise == 1:
+            print(f"\033[H\033[J--- INSERT ---\n")
+            insert_example()
+            Flag = False
+        elif choise == 2:
+            print(f"\033[H\033[J--- SEARCH ---\n")
+            search_example()
+            Flag = False
+        elif choise == 3:
+            print(f"\033[H\033[J--- DELETE ---\n")
+            delete_example()
+            Flag = False
+        else:
+            print(f"\033[H\033[JIncorrect value!")
+            Flag = False
+    cont = input('\nDo u want continue? (y/n): ')
+    if cont == "y":
+        print("\033[H\033[J", end="")
+        main()
+    else:
+        print(f'\033[H\033[JHave a good day! ;)')
 
 
 if __name__ == "__main__":
